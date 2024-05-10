@@ -5,7 +5,7 @@ const ErrorPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <Helmet>
-        <title>Dream Home | Error</title>
+        <title> CL | Error</title>
       </Helmet>
       <div className="max-w-lg text-center">
         <h1 className="text-4xl font-bold mb-4 text-red-600">404 - Page Not Found</h1>

@@ -18,8 +18,8 @@ const Home = () => {
 
   return (
     <div className="text-black">
-      <Helmet>
-        <title> Travel | Home</title>
+        <Helmet>
+        <title> Library | Home</title>
       </Helmet>
 
       <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-10">
@@ -55,7 +55,7 @@ const Home = () => {
           <Countries/>               
         </div>
       </section>
-      
+
       {/* Last Minute Offer */}
        <section className="py-12 bg-gray-100">
         <div className="container mx-auto">

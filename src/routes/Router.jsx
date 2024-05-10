@@ -68,14 +68,14 @@ const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "/add-tourists-spot",
-        element: (
-          <PrivateRoute>
-            <AddTouristsSpot />
-          </PrivateRoute>
-        ),
-      },
+    //   {
+    //     path: "/add-tourists-spot",
+    //     element: (
+    //       <PrivateRoute>
+    //         <AddTouristsSpot />
+    //       </PrivateRoute>
+    //     ),
+    //   },
       {
         path: "/update-tourists-spot/:id",
         element: (
