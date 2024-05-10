@@ -55,14 +55,14 @@ const Register = () => {
     }
 
     // If password meets requirements, proceed with registration
-    createUser(email, photo, password)
+    createUser(email, password)
       .then((result) => {
         console.log(result.user);
         // toast.success("Registration successful");
         Swal.fire({
           icon: "success",
           title: "Registration Successful",
-          text: "You have successfully Register!",
+          text: "You have successfully registered!",
         }).then(() => {
           navigate(location?.state ? location.state : "/");
         });
@@ -70,7 +70,7 @@ const Register = () => {
         // update profile:
         updateProfile(result.user, {
           displayName: name,
-          photoURL: "https://i.stack.imgur.com/l9rjv.png?s=128&g=true",
+          photoURL: photo, // Set the photo URL here
         });
       })
       .then(() => console.log("profile updated"))
@@ -81,7 +81,7 @@ const Register = () => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Invalid email or password",
+          text: "Registration failed",
         });
       });
   };

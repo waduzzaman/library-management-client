@@ -7,11 +7,11 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
-import UserProfile from "../pages/UserProfile/UserProfile";
+
 
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import MyList from "../pages/MyList/MyList";
-import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
+// import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
 
 const router = createBrowserRouter([
   {
@@ -50,14 +50,7 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
-      {
-        path: "/userprofile",
-        element: (
-          <PrivateRoute>
-            <UserProfile />
-          </PrivateRoute>
-        ),
-      },
+   
 
       {
         path: "/view-details/:id",
@@ -76,15 +69,15 @@ const router = createBrowserRouter([
     //       </PrivateRoute>
     //     ),
     //   },
-      {
-        path: "/update-tourists-spot/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateTouristsSpot />
-          </PrivateRoute>
-        ),
-        loader: ({ params }) =>fetch(`https://tourism-management-server-sable.vercel.app/spots${params.id}`),
-      },
+    //   {
+    //     path: "/update-tourists-spot/:id",
+    //     element: (
+    //       <PrivateRoute>
+    //         <UpdateTouristsSpot />
+    //       </PrivateRoute>
+    //     ),
+    //     loader: ({ params }) =>fetch(`https://tourism-management-server-sable.vercel.app/spots${params.id}`),
+    //   },
     ],
   },
 ]);

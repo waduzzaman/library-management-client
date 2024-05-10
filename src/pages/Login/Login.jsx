@@ -2,57 +2,12 @@
 import { useState, useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-// import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
-import { signInWithPopup, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import { FaGithub, FaGoogle } from "react-icons/fa";
-
-import Swal from 'sweetalert2'
-
-
-const GitHubSignInButton = () => {
-  const auth = useContext(AuthContext);
-  const handleGitHubSignIn = async () => {
-    try {
-      const provider = new GithubAuthProvider();
-      const result = await signInWithPopup(auth.auth, provider);
-      const user = result.user;
-      console.log("GitHub sign-in successful:", user);
-    } catch (error) {
-      console.error("GitHub sign-in error:", error);
-    }
-  };
-
-  return (
-    <button className='bg-gray-800 text-white px-20 py-5 rounded-md'  onClick={handleGitHubSignIn}>
-      <FaGithub />
-    </button>
-  );
-};
-
-const GoogleSignInButton = () => {
-  const auth = useContext(AuthContext);
-  const handleGoogleSignIn = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth.auth, provider);
-      const user = result.user;
-      console.log("Google sign-in successful:", user);
-    } catch (error) {
-      console.error("Google sign-in error:", error);
-    }
-  };
-
-  return (
-    <button className='bg-gray-800 text-white px-20 py-5 rounded-md' onClick={handleGoogleSignIn}>
-      <FaGoogle />
-    </button>
-  );
-};
+import Swal from 'sweetalert2';
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, user } = useContext(AuthContext);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
@@ -62,7 +17,8 @@ const Login = () => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get('email');
-    const password = form.get('password');  
+    const password = form.get('password');
+
     try {
       await signIn(email, password);
       console.log('Login successful');
@@ -87,7 +43,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex justify-center items-center">
       <Helmet>
-        <title> Travel | Login</title>
+        <title>Travel | Login</title>
       </Helmet>
       <div className="bg-white shadow-md rounded-md p-8 max-w-md w-full">
         <h2 className="text-center text-3xl mb-10">Please Login</h2>
@@ -127,14 +83,12 @@ const Login = () => {
           </div>
         </form>
         {error && <p className="text-center text-red-500 my-2">{error}</p>}
-        
-
+        {user && <p className="text-center">Logged in as: {user.email}</p>}
         <div className="flex gap-3 items-center justify-center px-2">
-
-          <div  className="w-1/2"><GoogleSignInButton/></div>
-          <div className="w-1/2" ><GitHubSignInButton /></div>
-      
-         
+          <button className="bg-gray-800 text-white px-20 py-5 rounded-md" onClick={signInWithGoogle}>
+            Sign in with Google
+          </button>
+          {/* Removed the commented-out line for sign in with GitHub */}
         </div>
         <p className="text-center my-5">
           Do not have an account?{' '}
@@ -144,8 +98,8 @@ const Login = () => {
         </p>
       </div>
     </div>
+
   );
 };
 
 export default Login;
-

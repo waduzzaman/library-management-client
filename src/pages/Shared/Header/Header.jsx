@@ -98,7 +98,7 @@ const Header = () => {
           </ul>
         </div>
         <Link to="/" className="">
-          <img className="w-16" src="logo.jpeg" alt="Logo" />
+          <img className="w-16" src="logo.svg" alt="Logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
