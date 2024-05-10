@@ -8,8 +8,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../pages/UserProfile/UserProfile";
-import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
-import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
+
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import MyList from "../pages/MyList/MyList";
 import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
@@ -24,10 +23,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      {
-        path: "/all-tourists-spot",
-        element: <AllTouristsSpot />,
-      },
+      
       {
         path: "/my-list",
         element: (
