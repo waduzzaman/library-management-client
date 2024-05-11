@@ -91,74 +91,91 @@ const Register = () => {
       <Helmet>
         <title> Travel | Registration</title>
       </Helmet>
-      <div className="bg-white shadow-md rounded-md p-8 max-w-md w-full">
-        <h2 className="text-center text-3xl mb-10">Please Register</h2>
-        <form onSubmit={handleRegister}>
-          <div className="mb-6">
-            <label className="block mb-1 font-semibold">Name</label>
-            <input
-              type="text"
-              placeholder="Your Name"
-              name="name"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block mb-1 font-semibold">Email</label>
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
+      <div className="flex rounded-2xl shadow-2xl ">
+        <div className="text-white p-8 max-w-md w-full bg-red-500">
+          <h2 className="text-center text-3xl font-bold mt-40 ">
+            Already have an account?
+          </h2>
+          <p className="text-center my-5"> Sign In with your credentials</p>
 
-          <div className="mb-6">
-            <label htmlFor="photoURL" className="block mb-1 font-semibold">
-              Photo URL
-            </label>
-            <input
-              type="url"
-              id="photoURL"
-              name="photo"
-              placeholder="Photo URL"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-              required
-            />
+          <div className="text-center m-10 border rounded-full py-2 bg-red-600 text-white font-bold hover:bg-green-600 hover:shadow-2xl transition-all duration-300">
+            <Link className="font-bold text-white-800" to="/login">
+              SIGN IN
+            </Link>
           </div>
-          <div className="mb-6">
-            <label className="block mb-1 font-semibold">Password</label>
-            <div className="relative">
+        </div>
+        <div className="bg-white p-8 max-w-md w-full">
+          <h2 className="text-center text-3xl font-bold mb-16">Create Account</h2>
+
+          <form onSubmit={handleRegister}>
+            <div className="mb-6">
+              {/* <label className="block mb-1 font-semibold">Name</label> */}
               <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                name="password"
+                type="text"
+                placeholder="Name"
+                name="name"
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 required
               />
-              <span
-                className="absolute top-3 right-3 cursor-pointer"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
             </div>
+            <div className="mb-6">
+              {/* <label className="block mb-1 font-semibold">Email</label> */}
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+
+            <div className="mb-6">
+              {/* <label htmlFor="photoURL" className="block mb-1 font-semibold">
+                Photo URL
+              </label> */}
+              <input
+                type="url"
+                id="photoURL"
+                name="photo"
+                placeholder="Photo URL"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                required
+              />
+            </div>
+            <div className="mb-6">
+              {/* <label className="block mb-1 font-semibold">Password</label> */}
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  name="password"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  required
+                />
+                <span
+                  className="absolute top-3 right-3 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
+            </div>
+            <div className="mb-6">
+             
+            </div>
+
+            <div className="text-center m-10 border rounded-full py-2 bg-red-600 text-white font-bold hover:bg-green-600 hover:shadow-2xl transition-all duration-300">
+            <button className="w-full text-white font-bold">
+                SIGN UP
+              </button>
           </div>
-          <div className="mb-6">
-            <button className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600">
-              Register
-            </button>
-          </div>
-        </form>
-        {error && <p className="text-center text-red-500 my-2">{error}</p>}
-        <p className="text-center my-5">
-          Already have an account?{" "}
-          <Link className="font-bold text-green-800" to="/login">
-            Login
-          </Link>
-        </p>
+
+
+
+
+          </form>
+          {error && <p className="text-center text-red-500 my-2">{error}</p>}
+        </div>
       </div>
     </div>
   );

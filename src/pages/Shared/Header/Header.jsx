@@ -46,13 +46,13 @@ const Header = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/all-tourists-spot">All Tourists Spot</NavLink>
+        <NavLink to="/all-books">All Books</NavLink>
       </li>
       <li>
-        <NavLink to="/add-tourists-spot">Add Tourists Spot</NavLink>
+        <NavLink to="/add-books">Add Books</NavLink>
       </li>      
       <li>
-        <NavLink to="/my-list">My List</NavLink>
+        <NavLink to="/borrowed-books">Borrowed Books</NavLink>
       </li>      
       <li>
         <NavLink to="/update-tourists-spot">Update Tourist Spot</NavLink>
@@ -71,8 +71,8 @@ const Header = () => {
   );
 
   return (
-    <div className={`navbar ${darkMode ? 'bg-black' : 'bg-base-100'}`}>
-      <div className="navbar-start">
+    <div className={`navbar ${darkMode ? 'bg-black' : 'bg-emerald-600'}`} >
+      <div className="navbar-start  pb-2">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
