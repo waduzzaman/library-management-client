@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
 import MyList from "../pages/MyList/MyList";
+import AddBook from "../pages/AddBook/AddBook";
 // import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
 
 const router = createBrowserRouter([
@@ -61,14 +62,14 @@ const router = createBrowserRouter([
         ),
       },
 
-    //   {
-    //     path: "/add-tourists-spot",
-    //     element: (
-    //       <PrivateRoute>
-    //         <AddTouristsSpot />
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: "/add-book",
+        element: (
+          <PrivateRoute>
+            <AddBook/>           
+          </PrivateRoute>
+        ),
+      },
     //   {
     //     path: "/update-tourists-spot/:id",
     //     element: (
