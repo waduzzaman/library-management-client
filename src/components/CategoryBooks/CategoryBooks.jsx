@@ -1,9 +1,13 @@
 
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const CategoryBooks = () => {
   return (
     <div className="container mx-auto p-4">
+       <Helmet>
+        <title> Library | Home</title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-8 text-center p-3 border bg-emerald-500 text-white"> Book Categories</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg overflow-hidden shadow-md">

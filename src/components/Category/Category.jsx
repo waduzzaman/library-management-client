@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PrivateRoute from "../../routes/PrivateRoute";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { Helmet } from "react-helmet-async";
 
 const Category = () => {
   const [books, setBooks] = useState([]);
@@ -39,6 +40,9 @@ const Category = () => {
 
   return (
     <div className="container mx-auto p-2">
+       <Helmet>
+        <title> Library | Category</title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-8 text-center">Book Category</h1>
       <div className="grid grid-cols-3 gap-8 p-4">
         {Object.keys(categoryBooks).map((category) => (

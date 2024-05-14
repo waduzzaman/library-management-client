@@ -78,6 +78,7 @@
 
 
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const News = () => {
@@ -117,6 +118,9 @@ const News = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+       <Helmet>
+        <title> Library | News</title>
+      </Helmet>
       {articles.slice(0, visibleArticles).map((article, index) => (
         <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md">
           <div className="h-40 overflow-hidden">

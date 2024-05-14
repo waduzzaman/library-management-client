@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Modal = ({ onClose, bookId }) => {
   const { user } = useContext(AuthContext);
@@ -18,6 +19,9 @@ const Modal = ({ onClose, bookId }) => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75">
+       <Helmet>
+        <title> Library | Modal</title>
+      </Helmet>
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <button
           className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"

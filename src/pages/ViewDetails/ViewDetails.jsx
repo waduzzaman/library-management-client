@@ -226,7 +226,7 @@ const ViewDetails = ({ loggedInUser }) => {
   return (
     <div className="">
       <Helmet>
-        <title> CL | Book Details</title>
+        <title> Library | Book Details</title>
       </Helmet>
       <div className="text-black text-center py-4">
         <h1 className="text-3xl font-bold">Book Details</h1>

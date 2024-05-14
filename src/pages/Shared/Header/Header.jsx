@@ -53,11 +53,7 @@ const Header = () => {
       </li>      
       <li>
         <NavLink to="/borrowed-books">Borrowed Books</NavLink>
-      </li>      
-    
-      <li>
-        <NavLink to="/blogs">Blogs</NavLink>
-      </li>
+      </li>          
  
    
     </>

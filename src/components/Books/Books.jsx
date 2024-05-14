@@ -6,6 +6,7 @@ import "@smastrom/react-rating/style.css";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -79,7 +80,11 @@ const Books = () => {
   };
 
   return (
+    
     <div className="container mx-auto p-2">
+       <Helmet>
+        <title> Library | All Books</title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-8 text-center pt-10">All Books</h1>
 
       <div className="mb-4 text-center">

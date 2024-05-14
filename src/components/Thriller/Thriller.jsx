@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Rating } from "@smastrom/react-rating";
 import { Link } from "react-router-dom";
 import PrivateRoute from "../../routes/PrivateRoute";
+import { Helmet } from "react-helmet-async";
 
 const Thriller = () => {
   const [thrillerBooks, setThrillerBooks] = useState([]);
@@ -22,6 +23,9 @@ const Thriller = () => {
 
   return (
     <div>
+       <Helmet>
+        <title> Library | Thriller</title>
+      </Helmet>
       <section className="pb-10 bg-gray-100">
         <div className="container mx-auto">
           <h2 className="text-center text-3xl font-bold mb-8 py-10">Thrillers</h2>

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const UpdateBook = () => {
   const { id } = useParams();
@@ -100,6 +101,9 @@ const UpdateBook = () => {
 
   return (
     <div className="bg-[#F4F3F0] p-24">
+       <Helmet>
+        <title> Library | Update Book</title>
+      </Helmet>
       <h2 className="text-4xl font-extrabold text-center text-black mb-5">
         Update Book
       </h2>
