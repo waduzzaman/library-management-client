@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-      console.log("logged in user inside auth state observer", loggedUser);
+      // console.log("logged in user inside auth state observer", loggedUser);
       setUser(loggedUser);
       setLoading(false);
     });
@@ -63,7 +63,7 @@ const AuthProvider = ({ children }) => {
     if (user) {
       // If the user is logged in show photo
       const photoUrl = user.photoURL;
-      console.log("User photo URL:", photoUrl);
+      // console.log("User photo URL:", photoUrl);
     }
   }, [user]);
 

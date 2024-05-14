@@ -34,7 +34,7 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => console.log("User logged out successfully"))
+      // .then(() => console.log("User logged out successfully"))
       .catch((error) => console.error(error));
   };
 
@@ -54,19 +54,12 @@ const Header = () => {
       <li>
         <NavLink to="/borrowed-books">Borrowed Books</NavLink>
       </li>      
-      <li>
-        <NavLink to="/update-tourists-spot">Update Tourist Spot</NavLink>
-      </li>      
-      <li>
-        <NavLink to="/view-details">View Details</NavLink>
-      </li>      
+    
       <li>
         <NavLink to="/blogs">Blogs</NavLink>
       </li>
  
-      <li>
-        <NavLink to="/userprofile">User Profile</NavLink>
-      </li>
+   
     </>
   );
 
@@ -113,9 +106,7 @@ const Header = () => {
             title={darkMode ? "Light Mode" : "Dark Mode"}
           >
             {darkMode ? "🌞" : "🌙"}
-          </button>
-
-    
+          </button>   
 
         
         {user ? (

@@ -1,17 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Root from "../layouts/Root";
 import Home from "../pages/Home/Home";
-import Blogs from "../pages/Blogs/Blogs";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
-
-
 import ViewDetails from "../pages/ViewDetails/ViewDetails";
-import MyList from "../pages/MyList/MyList";
 import AddBook from "../pages/AddBook/AddBook";
+import CategoryBooks from "../components/CategoryBooks/CategoryBooks";
+import Mystery from "../components/Mystery/Mystery.jsx";
+import Fiction from "../components/Fiction/Fiction.jsx";
+import Thriller from "../components/Thriller/Thriller.jsx";
+import Fantasy from "../components/Fantasy/Fantasy.jsx";
+import News from "../components/News/News.jsx";
+import NewsDetails from "../components/NewsDetails/NewsDetails.jsx";
+import AddProgram from "../pages/AddProgram/AddProgram.jsx";
+import Books from "../components/Books/Books.jsx";
+import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks.jsx";
+import UpdateBook from "../components/UpdateBook/UpdateBook.jsx";
 // import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
 
 const router = createBrowserRouter([
@@ -24,25 +30,67 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      
+
       {
-        path: "/my-list",
+        path: "/all-books",
         element: (
           <PrivateRoute>
-            <MyList />
+            <Books />
           </PrivateRoute>
         ),
- 
+      },
+      {
+        path: "/category-books",
+        element: (
+          <PrivateRoute>
+            <CategoryBooks />
+          </PrivateRoute>
+        ),
       },
 
       {
-        path: "/view-details/:id",
-        element: <ViewDetails />,
+        path: "/mystery",
+        element: (
+          <PrivateRoute>
+            <Mystery />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/blogs",
-        element: <Blogs></Blogs>,
+        path: "/fiction",
+        element: (
+          <PrivateRoute>
+            <Fiction></Fiction>
+          </PrivateRoute>
+        ),
       },
+
+      {
+        path: "/thriller",
+        element: (
+          <PrivateRoute>
+            <Thriller />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/fantasy",
+        element: (
+          <PrivateRoute>
+            <Fantasy />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/news",
+        element: <News />,
+      },
+      {
+        path: "/news/:id",
+        element: <NewsDetails />,
+      },
+
       {
         path: "/login",
         element: <Login></Login>,
@@ -51,7 +99,6 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
-   
 
       {
         path: "/view-details/:id",
@@ -66,19 +113,47 @@ const router = createBrowserRouter([
         path: "/add-book",
         element: (
           <PrivateRoute>
-            <AddBook/>           
+            <AddBook />
           </PrivateRoute>
         ),
       },
-    //   {
-    //     path: "/update-tourists-spot/:id",
-    //     element: (
-    //       <PrivateRoute>
-    //         <UpdateTouristsSpot />
-    //       </PrivateRoute>
-    //     ),
-    //     loader: ({ params }) =>fetch(`https://tourism-management-server-sable.vercel.app/spots${params.id}`),
-    //   },
+      {
+        path: "/add-program",
+        element: (
+          <PrivateRoute>
+            <AddProgram />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/borrowed-books",
+        element: (
+          <PrivateRoute>
+            <BorrowedBooks />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/borrowed-books/:id",
+        element: (
+          <PrivateRoute>
+            <BorrowedBooks />
+          </PrivateRoute>
+        ),
+      },
+
+        {
+          path: "/update-book/:id",
+          element: (
+            <PrivateRoute>
+             <UpdateBook/>
+            </PrivateRoute>
+          ),
+          loader: ({ params }) =>fetch(`https://community-library-server.vercel.app/books${params.id}`),
+
+          
+        },
     ],
   },
 ]);

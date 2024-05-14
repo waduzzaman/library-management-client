@@ -23,10 +23,10 @@ const AddBook = () => {
        
         const newBook = {email, image, name, quantity, author,category,description,ratings, content };
 
-        console.log(newBook);
+        // console.log(newBook);
 
         // Send data to the server
-        fetch('http://localhost:5000/books', {
+        fetch('https://community-library-server.vercel.app/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ const AddBook = () => {
                         <label className="label">
                             <span className="label-text text-black text-lg font-bold">Author</span>
                         </label>
-                        <input type="text" name="author" placeholder="Country Name" className="input input-bordered w-full" />
+                        <input type="text" name="author" placeholder="Author Name" className="input input-bordered w-full" />
                     </div>
                 </div>
                 <div className="md:flex mb-8">

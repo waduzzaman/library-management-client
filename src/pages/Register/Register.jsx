@@ -57,7 +57,7 @@ const Register = () => {
     // If password meets requirements, proceed with registration
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         // toast.success("Registration successful");
         Swal.fire({
           icon: "success",
@@ -73,7 +73,7 @@ const Register = () => {
           photoURL: photo, // Set the photo URL here
         });
       })
-      .then(() => console.log("profile updated"))
+      // .then(() => console.log("profile updated"))
       .catch((error) => {
         console.error(error);
         setError("Registration failed");
