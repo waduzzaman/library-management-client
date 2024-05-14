@@ -29,6 +29,7 @@ const Register = () => {
     const lowercaseRegex = /[a-z]/;
     const uppercaseRegex = /[A-Z]/;
     const numberRegex = /[0-9]/;
+    const specialRegex = /[$&+,:;=?@#|'<>.^*()%!-]/;
     const lengthRequirement = password.length >= 6;
 
     if (!lowercaseRegex.test(password)) {
@@ -45,6 +46,11 @@ const Register = () => {
     if (!numberRegex.test(password)) {
       setError("Password must contain at least one number");
       toast.error("Password must contain at least one number");
+      return;
+    }
+    if (!specialRegex.test(password)) {
+      setError("Password must contain at least one special character [$&+,:;=?@#|'<>.-^*()%!]");
+      toast.error("Password must contain at least one special character [$&+,:;=?@#|'<>.-^*()%!]");
       return;
     }
 
@@ -89,7 +95,7 @@ const Register = () => {
   return (
     <div className="min-h-screen flex justify-center items-center b">
       <Helmet>
-        <title> Travel | Registration</title>
+        <title> Library | Registration</title>
       </Helmet>
       <div className="flex rounded-2xl shadow-2xl ">
         <div className="text-white p-8 max-w-md w-full bg-red-500">
@@ -105,7 +111,9 @@ const Register = () => {
           </div>
         </div>
         <div className="bg-white p-8 max-w-md w-full">
-          <h2 className="text-center text-3xl font-bold mb-16">Create Account</h2>
+          <h2 className="text-center text-3xl font-bold mb-16">
+            Create Account
+          </h2>
 
           <form onSubmit={handleRegister}>
             <div className="mb-6">
@@ -160,19 +168,11 @@ const Register = () => {
                 </span>
               </div>
             </div>
-            <div className="mb-6">
-             
-            </div>
+            <div className="mb-6"></div>
 
             <div className="text-center m-10 border rounded-full py-2 bg-red-600 text-white font-bold hover:bg-green-600 hover:shadow-2xl transition-all duration-300">
-            <button className="w-full text-white font-bold">
-                SIGN UP
-              </button>
-          </div>
-
-
-
-
+              <button className="w-full text-white font-bold">SIGN UP</button>
+            </div>
           </form>
           {error && <p className="text-center text-red-500 my-2">{error}</p>}
         </div>

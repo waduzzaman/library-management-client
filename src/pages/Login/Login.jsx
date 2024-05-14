@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex justify-center items-center">
       <Helmet>
-        <title> Community Library | Login</title>
+        <title> Library | Login</title>
       </Helmet>
       <div className="flex shadow-2xl rounded-lg ">
         <div className=" bg-white-100 p-8 max-w-md w-full">
