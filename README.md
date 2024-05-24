@@ -1,10 +1,10 @@
 ## Assignment_ID: assignment_category_0008
 
-# School Library Management System
+# Library Management System
 
-Welcome to the School Library Management System, a web application designed to facilitate book management for schools. This system allows schools to add books, update book information, track borrow and return activities, and provide a seamless experience for managing their library collection.
+Welcome to the Community Library Management System, a web application designed to facilitate book management for a community. This system allows the Liberians  to add books, update book information, track borrow and return activities, and provide a seamless experience for managing their library collection.
 
-**Live Site:** [School Library Management System](https://community-library-d20f8.web.app)
+**Live Site:** [Community Library Management System](https://community-library-d20f8.web.app)
 
 
 
