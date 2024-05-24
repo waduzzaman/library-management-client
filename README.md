@@ -1,6 +1,6 @@
 ## Assignment_ID: assignment_category_0008
 
-# School Library Management System
+# Library Management System
 
 Welcome to the Community Library Management System, a web application designed to facilitate book management for a community. This system allows the Liberians  to add books, update book information, track borrow and return activities, and provide a seamless experience for managing their library collection.
 
