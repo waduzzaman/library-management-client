@@ -25,6 +25,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root></Root>,
     errorElement: <ErrorPage />,
+  
+    
     children: [
       {
         path: "/",
@@ -39,13 +41,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      // {
+      //   path: "/category-books",
+      //   element: (
+      //     <PrivateRoute>
+      //       <CategoryBooks />
+      //     </PrivateRoute>
+      //   ),
+      // },
       {
         path: "/category-books",
-        element: (
-          <PrivateRoute>
-            <CategoryBooks />
-          </PrivateRoute>
-        ),
+        element: <CategoryBooks />,
+         
       },
 
       {
@@ -117,6 +124,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+  
       {
         path: "/add-program",
         element: (

@@ -4,7 +4,7 @@ import CategoryBooks from "../../components/CategoryBooks/CategoryBooks";
 import News from "../../components/News/News";
 import AddProgram from "../AddProgram/AddProgram";
 import Programs from "../../components/Programs/Programs";
-import PrivateRoute from "../../routes/PrivateRoute";
+import Map from "../../components/Map/Map";
 
 const Home = () => {
   return (
@@ -35,25 +35,30 @@ const Home = () => {
       {/* add program */}
       <section className="py-12 bg-gray-100">
         <div className="container mx-auto">
-          <PrivateRoute>
-            {" "}
-            <AddProgram />
-          </PrivateRoute>
+          {" "}
+          <AddProgram />
         </div>
       </section>
 
       <section className="py-12 bg-gray-100 -10">
         <div className="container mx-auto py-10">
-        <h1 className="text-3xl  pt mb-10 font-bold text-center p-3 border bg-emerald-500 text-white"> Latest News</h1>
+          <h1 className="text-3xl  pt mb-10 font-bold text-center p-3 border bg-emerald-500 text-white">
+            {" "}
+            Latest News
+          </h1>
           <News />
         </div>
       </section>
 
-      {/* <section className="py-12 bg-gray-100">
-        <div className="container mx-auto">
-          <Books />
+      <section className="py-12 bg-gray-100 -10">
+        <div className="container mx-auto py-10">
+          <h1 className="text-3xl  pt mb-10 font-bold text-center p-3 border bg-emerald-500 text-white">
+            {" "}
+            Library Map
+          </h1>
+          <Map></Map>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };

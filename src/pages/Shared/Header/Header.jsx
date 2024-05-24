@@ -1,13 +1,10 @@
-
-
-import { useContext, useEffect, useState, } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { PiSignInBold } from "react-icons/pi";
 
 const Header = () => {
-
-  const { user, logOut } = useContext(AuthContext) ||{};
+  const { user, logOut } = useContext(AuthContext) || {};
   const [showUserName, setShowUserName] = useState(false);
 
   // Dark mode
@@ -31,7 +28,6 @@ const Header = () => {
     setDarkMode((prevMode) => !prevMode);
   };
 
-
   const handleLogOut = () => {
     logOut()
       // .then(() => console.log("User logged out successfully"))
@@ -50,17 +46,15 @@ const Header = () => {
       </li>
       <li>
         <NavLink to="/add-book">Add Book</NavLink>
-      </li>      
+      </li>
       <li>
         <NavLink to="/borrowed-books">Borrowed Books</NavLink>
-      </li>          
- 
-   
+      </li>
     </>
   );
 
   return (
-    <div className={`navbar ${darkMode ? 'bg-black' : 'bg-emerald-600'}`} >
+    <div className={`navbar ${darkMode ? "bg-black" : "bg-emerald-600"}`}>
       <div className="navbar-start  pb-2">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -91,20 +85,18 @@ const Header = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal px-1 font-semibold ">{navLinks}</ul>
       </div>
 
       <div className="navbar-end">
+        <button
+          onClick={toggleDarkMode}
+          className="btn btn-sm mr-2"
+          title={darkMode ? "Light Mode" : "Dark Mode"}
+        >
+          {darkMode ? "🌞" : "🌙"}
+        </button>
 
-      <button
-            onClick={toggleDarkMode}
-            className="btn btn-sm mr-2"
-            title={darkMode ? "Light Mode" : "Dark Mode"}
-          >
-            {darkMode ? "🌞" : "🌙"}
-          </button>   
-
-        
         {user ? (
           <div
             className="flex items-center relative"
@@ -125,15 +117,19 @@ const Header = () => {
                 )}
               </div>
             )}
-            <button onClick={handleLogOut} className="btn btn-sm"><PiSignInBold />
+            <button onClick={handleLogOut} className="btn btn-sm">
+              <PiSignInBold />
               Sign out
             </button>
           </div>
         ) : (
-          <div className="flex gap-3 items-center">         
+          <div className="flex gap-3 items-center">
             <div>
               <Link to="/login">
-                <button className="btn btn-sm"> <PiSignInBold /> Login</button>
+                <button className="btn btn-sm">
+                  {" "}
+                  <PiSignInBold /> Login
+                </button>
               </Link>
             </div>
             <div>
@@ -149,5 +145,3 @@ const Header = () => {
 };
 
 export default Header;
-
-

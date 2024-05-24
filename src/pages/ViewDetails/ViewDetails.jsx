@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useContext } from "react";
+import  { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import PropTypes from "prop-types";
@@ -8,60 +8,24 @@ import { Rating } from "@smastrom/react-rating";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const ViewDetails = ({ loggedInUser }) => {
-
-  const { user } = useContext(AuthContext) ;
+  const { user } = useContext(AuthContext) || {};
+  const { id } = useParams();
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
   const [showModal, setShowModal] = useState(false);
-  const [returnDate, setReturnDate] = useState(""); // State for return date
-  const [quantity, setQuantity] = useState(0); // State for quantity
-
-  const handleBorrowClick = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  const handleFormSubmit = async () => {
-    try {
-      // Decrease the quantity by 1
-      const updatedQuantity = quantity - 1;
-      if (updatedQuantity < 0) {
-        // Quantity can't be negative
-        return;
-      }
-      
-      // Update the book's quantity
-      setQuantity(updatedQuantity);
-
-      // Add the book to borrowed books (implement this according to your app's logic)
-
-      // Disable Borrow button if quantity becomes 0
-      if (updatedQuantity === 0) {
-        // Disable Borrow button
-      }
-
-      // Close modal
-      setShowModal(false);
-    } catch (error) {
-      console.error("Error borrowing book:", error);
-    }
-  };
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await fetch(`https://community-library-server.vercel.app/books/${id}`);
+        const response = await fetch(
+          `https://community-library-server.vercel.app/books/${id}`
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch book details");
         }
         const data = await response.json();
         setBook(data);
-        setQuantity(data.quantity); // Set initial quantity
       } catch (error) {
         console.error("Error fetching book details:", error);
       } finally {
@@ -72,6 +36,14 @@ const ViewDetails = ({ loggedInUser }) => {
     fetchBook();
   }, [id]);
 
+  const handleBorrowClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -79,11 +51,6 @@ const ViewDetails = ({ loggedInUser }) => {
   if (!book) {
     return <div>Error loading book details</div>;
   }
-
-  if (!loading && !book) {
-    return <div>Error: Unable to load book details</div>;
-  }
-  
 
   return (
     <div className="">
@@ -113,7 +80,7 @@ const ViewDetails = ({ loggedInUser }) => {
 
             <p className="text-gray-800 mb-2 font-bold">
               <span className="font-bold">Quantity: </span>
-              {quantity}
+              {book.quantity}
             </p>
             <p className="text-gray-600 mb-4">
               <span className="font-bold">Description: </span>
@@ -136,36 +103,22 @@ const ViewDetails = ({ loggedInUser }) => {
               <span className="font-bold">Content: </span> {book.content} days
             </p>
 
-            <div>
-              {/* Borrow Button */}
-              <button className="btn btn-info" onClick={handleBorrowClick} disabled={quantity === 0}>
-                Borrow
-              </button>
+            <button
+              className="btn btn-info"
+              onClick={handleBorrowClick}
+              disabled={book.quantity === 0}
+            >
+              Borrow
+            </button>
 
-              {/* Modal */}
-              {showModal && (
-                <Modal onClose={handleCloseModal}>
-                  <h2>Borrow Book</h2>
-                  {/* Form for borrowing */}
-                  <div>
-                    <label htmlFor="returnDate">Return Date:</label>
-                    <input
-                      type="date"
-                      id="returnDate"
-                      value={returnDate}
-                      onChange={(e) => setReturnDate(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    {/* Email and Name fields filled with currently logged-in user's email and displayName */}
-                    <p>Email: {loggedInUser?.email}</p>
-                    <p>Name: {loggedInUser?.displayName}</p>
-                  </div>
-                  {/* Submit Button */}
-                  <button onClick={handleFormSubmit}>Submit</button>
-                </Modal>
+            {showModal &&
+              book && ( // Add a conditional check for book
+                <Modal
+                  onClose={handleCloseModal}
+                  loggedInUser={loggedInUser}
+                  book={book}
+                />
               )}
-            </div>
           </div>
         </div>
       </div>
@@ -174,9 +127,7 @@ const ViewDetails = ({ loggedInUser }) => {
 };
 
 ViewDetails.propTypes = {
-  loggedInUser: PropTypes.object.isRequired, // PropTypes for logged-in user
+  loggedInUser: PropTypes.object.isRequired,
 };
 
 export default ViewDetails;
-
-

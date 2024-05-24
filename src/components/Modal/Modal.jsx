@@ -1,25 +1,55 @@
-import { useState, useContext } from "react";
+
+
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 
-const Modal = ({ onClose, bookId }) => {
-  const { user } = useContext(AuthContext);
-
-  const [returnDate, setReturnDate] = useState("");
+const Modal = ({ onClose, book }) => {
+  // console.log(book._id);
+  const { user: loggedInUser } = useContext(AuthContext);
   
+  const [returnDate, setReturnDate] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setReturnDate("");
-
-    onClose();
+    try {
+      if (!book || !book._id) {
+        throw new Error('Invalid book');
+      }
+  
+      const borrowedBookData = {
+        returnDate: returnDate,
+        userEmail: loggedInUser.email, // Include userEmail from loggedInUser
+        userName: loggedInUser.displayName, // Include userName from loggedInUser
+      };
+  
+      const response = await fetch(
+        `https://community-library-server.vercel.app/books/${book._id}/borrow`,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(borrowedBookData),
+        }
+    );
+    
+  
+      if (!response.ok) {
+        throw new Error("Failed to borrow book");
+      }
+  
+      onClose();
+    } catch (error) {
+      console.error("Error borrowing book:", error);
+    }
   };
+  
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75">
-       <Helmet>
+      <Helmet>
         <title> Library | Modal</title>
       </Helmet>
       <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -58,7 +88,7 @@ const Modal = ({ onClose, bookId }) => {
               type="email"
               id="email"
               className="mt-1 p-2 border rounded-md w-full"
-              value={user.email}
+              value={loggedInUser.email}
               disabled
             />
           </div>
@@ -73,7 +103,7 @@ const Modal = ({ onClose, bookId }) => {
               type="text"
               id="name"
               className="mt-1 p-2 border rounded-md w-full"
-              value={user.displayName}
+              value={loggedInUser.displayName}
               disabled
             />
           </div>
@@ -91,7 +121,7 @@ const Modal = ({ onClose, bookId }) => {
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  bookId: PropTypes.string.isRequired, // Ensure that bookId is a required string prop
+  book: PropTypes.object.isRequired,
 };
 
 export default Modal;
