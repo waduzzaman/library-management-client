@@ -5,29 +5,31 @@ const Map = () => {
     width: '100%',
     height: '400px'
   };
-  
+
   const center = {
-    lat: 43.757689376573545,
-    lng: -79.22394164488144
+    lat: 43.75759366221604,
+    lng: -79.22396057439575
   };
 
   const markerPosition = {
-    lat: 43.757689376573545,
-    lng: -79.22394164488144
+    lat: 43.75759366221604,
+    lng: -79.22396057439575
+
+     
   };
 
   return (
-    <div className="flex justify-center items-center my-8">
-      <LoadScript googleMapsApiKey={import.meta.env.VITE_MAP_API}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={10}
-        >
-          <Marker position={markerPosition} />
-        </GoogleMap>
-      </LoadScript>
-    </div>
+    <LoadScript googleMapsApiKey={`${import.meta.env.VITE_MAP_API}`}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        tilt={45} // Set tilt to 45 for a 3D effect
+        mapTypeId="satellite" // Set map type to satellite for aerial view
+      >
+        <Marker position={markerPosition} />
+      </GoogleMap>
+    </LoadScript>
   );
 };
 
