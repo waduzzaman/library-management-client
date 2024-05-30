@@ -17,9 +17,12 @@ Welcome to the Community Library Management System, a web application designed t
 - **Toasts for Feedback**: Display relevant toasts/sweet alerts after successful CRUD operations, enhancing user experience without relying on browser alerts.
 - **Book Categories**: Browse books by category, including Novel, Thriller, History, Drama, Sci-Fi, and more, offering a diverse selection for readers.
 - **Borrowing System**: Seamlessly borrow books with the click of a button, complete with a modal form for return date selection and automatic quantity management.
-- **Borrowed Books Page**: View borrowed books, track borrowing history, and easily return books with a simple click, providing transparency and accountability.
+
 - **Authentication**: Implement secure email and password-based authentication, with registration and login pages providing error feedback for enhanced security.
 - **Social Login Integration**: Offer additional login options such as Facebook, GitHub, or Google, providing flexibility and convenience for users.
 - **User Profile**: Display user name, profile picture, and logout button on the navbar for authenticated users, ensuring easy access to account management features.
+- **Local Weather**: Display Local Weather with the location 
+- **Current Time**: Display Local Current Time 
+- **Google Map**: Locate library in Google Map
 
 

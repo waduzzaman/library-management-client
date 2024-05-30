@@ -6,6 +6,7 @@ const Programs = () => {
   const [programs, setPrograms] = useState([]);
 
   useEffect(() => {
+    // fetch('https://community-library-server.vercel.app/programs')
     fetch('https://community-library-server.vercel.app/programs')
       .then((response) => response.json())
       .then((data) => setPrograms(data))

@@ -12,7 +12,7 @@ const DateTime = () => {
       // const formattedDate = date.toLocaleDateString('en-US', dateOptions);
       const formattedTime = date.toLocaleTimeString('en-US', timeOptions);
       
-      setCurrentDateTime(`  ${formattedTime} |`);
+      setCurrentDateTime(`  ${formattedTime} | `);
     };
 
     updateDateTime();
