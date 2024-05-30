@@ -5,6 +5,9 @@ import News from "../../components/News/News";
 import AddProgram from "../AddProgram/AddProgram";
 import Programs from "../../components/Programs/Programs";
 import Map from "../../components/Map/Map";
+import Weather from "../../components/Weather/Weather";
+import DateTime from "../../components/DateTime/DateTime";
+import Clock from "../../components/Clock/Clock";
 
 const Home = () => {
   return (
@@ -59,6 +62,10 @@ const Home = () => {
           <Map></Map>
         </div>
       </section>
+  
+
+   
+  
     </div>
   );
 };

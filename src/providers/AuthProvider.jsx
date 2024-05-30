@@ -63,7 +63,7 @@ const AuthProvider = ({ children }) => {
     if (user) {
       // If the user is logged in show photo
       const photoUrl = user.photoURL;
-      // console.log("User photo URL:", photoUrl);
+      console.log("User photo URL:", photoUrl);
     }
   }, [user]);
 
