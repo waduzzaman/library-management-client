@@ -18,6 +18,7 @@ import AddProgram from "../pages/AddProgram/AddProgram.jsx";
 import Books from "../components/Books/Books.jsx";
 import BorrowedBooks from "../pages/BorrowedBooks/BorrowedBooks.jsx";
 import UpdateBook from "../components/UpdateBook/UpdateBook.jsx";
+import Programs from "../components/Programs/Programs.jsx";
 // import UpdateTouristsSpot from "../pages/UpdateTouristsSpot/UpdateTouristsSpot";
 
 const router = createBrowserRouter([
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/programs",
+        element:<Programs></Programs>
       },
 
       {

@@ -5,11 +5,18 @@ import News from "../../components/News/News";
 import AddProgram from "../AddProgram/AddProgram";
 import Programs from "../../components/Programs/Programs";
 import Map from "../../components/Map/Map";
-import Weather from "../../components/Weather/Weather";
-import DateTime from "../../components/DateTime/DateTime";
-import Clock from "../../components/Clock/Clock";
+
+
 
 const Home = () => {
+  
+  const scrollToPrograms = () => {
+    const programsSection = document.getElementById("programs");
+    if (programsSection) {
+      programsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <div className="text-black">
       <Helmet>
@@ -19,7 +26,7 @@ const Home = () => {
       {/* Carousel Section */}
       <section className="pb-10 bg-gray-100">
         <div className="container mx-auto w-full h-1/2">
-          <Banner />
+        <Banner onClickLatestProgram={scrollToPrograms} />
         </div>
       </section>
 
@@ -29,7 +36,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-gray-100">
+      <section id="programs" className="py-12 bg-gray-100">
         <div className="container mx-auto">
           <Programs />
         </div>
