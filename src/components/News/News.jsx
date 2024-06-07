@@ -11,7 +11,7 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        // News Api
+        // News Api created
         const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_NEWS_API}`);
         if (!response.ok) {
           throw new Error('Failed to fetch news');
