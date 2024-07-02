@@ -1,4 +1,3 @@
-## Assignment_ID: assignment_category_0008
 
 # Library Management System
 
@@ -6,23 +5,32 @@ Welcome to the Community Library Management System, a web application designed t
 
 **Live Site:** [Community Library Management System](https://community-library-d20f8.web.app)
 
-
-
 ## Features and Characteristics
-
-- **Unique Design**: Our website offers a unique and visually appealing design tailored specifically for school library management.
-- **Responsive Design**: Accessible from any device, including desktop, tablet, and mobile, ensuring a seamless experience for users on any platform.
-- **CRUD Operations**: Perform Create, Read, Update, and Delete operations for books with ease, providing comprehensive management capabilities.
-- **Private Routes**: Secure private routes for sensitive operations such as adding, updating, and borrowing books, ensuring data privacy and integrity.
-- **Toasts for Feedback**: Display relevant toasts/sweet alerts after successful CRUD operations, enhancing user experience without relying on browser alerts.
 - **Book Categories**: Browse books by category, including Novel, Thriller, History, Drama, Sci-Fi, and more, offering a diverse selection for readers.
 - **Borrowing System**: Seamlessly borrow books with the click of a button, complete with a modal form for return date selection and automatic quantity management.
-
 - **Authentication**: Implement secure email and password-based authentication, with registration and login pages providing error feedback for enhanced security.
-- **Social Login Integration**: Offer additional login options such as Facebook, GitHub, or Google, providing flexibility and convenience for users.
-- **User Profile**: Display user name, profile picture, and logout button on the navbar for authenticated users, ensuring easy access to account management features.
 - **Local Weather**: Display Local Weather with the location 
 - **Current Time**: Display Local Current Time 
 - **Google Map**: Locate library in Google Map
 
+## Technology Used: 
+- React
+- Tailwind CSS
+- Daisy UI
+- Vite
+- ESLint
+- React Dom
+- Firebase Authentication
+- Axios
+- Google-Map-React
+- React Healmet
+- Open Weather Api
+- React Toastify
+- Sweet Alert 2
+
+## How to run the project: 
+- clone the repo
+- npm i
+- add related dependencies 
+- npm run dev
 
